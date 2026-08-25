@@ -21,12 +21,36 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
 
-    - name: Grant execute permission for gradlew
+    - name: Fix Project Structure
       run: |
-        chmod +x gradlew || true
+        # Si la carpeta app está suelta, aseguramos que Gradle tenga un entorno válido
+        if [ -d "app" ] && [ ! -f "build.gradle" ]; then
+          echo "Creando ajustes globales de Gradle..."
+          echo "include ':app'" > settings.gradle
+          cat << 'EOF' > build.gradle
+          buildscript {
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+              dependencies {
+                  classpath "com.android.tools.build:gradle:8.1.0"
+                  classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0"
+              }
+          }
+          allprojects {
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+          }
+          EOF
+        fi
+        gradle wrapper
 
     - name: Build Debug APK
       run: |
+        chmod +x gradlew || true
         ./gradlew assembleDebug
 
     - name: Upload APK
