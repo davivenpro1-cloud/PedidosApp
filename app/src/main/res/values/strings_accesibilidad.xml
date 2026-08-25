@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="descripcion_servicio_accesibilidad">Permite que la app pulse automáticamente el botón de enviar en WhatsApp para los pedidos programados, sin que tengas que tocar nada.</string>
+</resources>

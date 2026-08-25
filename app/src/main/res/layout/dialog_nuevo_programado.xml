@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <EditText
+        android:id="@+id/campoMensaje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Escribe aquí el pedido (cliente y productos)"
+        android:minLines="3"
+        android:gravity="top"
+        android:inputType="textMultiLine" />
+
+    <RadioGroup
+        android:id="@+id/grupoTipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioUnico"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Un día concreto"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radioRecurrente"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Todas las semanas" />
+    </RadioGroup>
+
+    <!-- Solo se muestra si se elige "Un día concreto" -->
+    <Button
+        android:id="@+id/botonElegirFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Elegir fecha" />
+
+    <!-- Solo se muestra si se elige "Todas las semanas" -->
+    <LinearLayout
+        android:id="@+id/filaDias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ToggleButton
+            android:id="@+id/diaLun"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOn="L" android:textOff="L" android:text="L" />
+
+        <ToggleButton
+            android:id="@+id/diaMar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOn="M" android:textOff="M" android:text="M" />
+
+        <ToggleButton
+            android:id="@+id/diaMie"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOn="X" android:textOff="X" android:text="X" />
+
+        <ToggleButton
+            android:id="@+id/diaJue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOn="J" android:textOff="J" android:text="J" />
+
+        <ToggleButton
+            android:id="@+id/diaVie"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOn="V" android:textOff="V" android:text="V" />
+
+        <ToggleButton
+            android:id="@+id/diaSab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOn="S" android:textOff="S" android:text="S" />
+
+        <ToggleButton
+            android:id="@+id/diaDom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOn="D" android:textOff="D" android:text="D" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/botonElegirHora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Elegir hora (08:00)" />
+
+</LinearLayout>
